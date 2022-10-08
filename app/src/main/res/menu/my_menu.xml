@@ -4,7 +4,7 @@
 
     <item
         android:id="@+id/delete_all"
-        android:title="Delete All"
+        android:title="Удалить все"
         android:icon="@drawable/ic_delete"
         app:showAsAction="never"/>
 
