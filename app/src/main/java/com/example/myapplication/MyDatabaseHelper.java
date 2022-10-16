@@ -52,7 +52,7 @@ class MyDatabaseHelper extends SQLiteOpenHelper {
         if(result == -1){
             Toast.makeText(context, "Ошибка", Toast.LENGTH_SHORT).show();
         }else {
-            Toast.makeText(context, "Добавлено успешно!!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "Добавлено", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -78,7 +78,7 @@ class MyDatabaseHelper extends SQLiteOpenHelper {
         if(result == -1){
             Toast.makeText(context, "Ошибка", Toast.LENGTH_SHORT).show();
         }else {
-            Toast.makeText(context, "Успешно Обновлено!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "Обновлено", Toast.LENGTH_SHORT).show();
         }
 
     }

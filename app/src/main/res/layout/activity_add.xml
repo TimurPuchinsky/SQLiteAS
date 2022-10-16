@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="30dp"
-    android:background="@drawable/back"
+    android:background="@color/white"
     tools:context=".AddActivity">
 
     <EditText
@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="150dp"
         android:ems="10"
-        android:hint="Название клана"
+        android:hint="Адрес"
         android:inputType="textPersonName"
         android:textColor="#000000"
         app:layout_constraintEnd_toEndOf="parent"
@@ -27,7 +27,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:ems="10"
-        android:hint="Глава клана"
+        android:hint="Электроэнергия (км)"
         android:inputType="textPersonName"
         android:textColor="#000000"
         app:layout_constraintEnd_toEndOf="parent"
@@ -40,7 +40,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:ems="10"
-        android:hint="Количество участников"
+        android:hint="Вода (кВтч)"
         android:inputType="number"
         android:textColor="#000000"
         app:layout_constraintEnd_toEndOf="parent"
