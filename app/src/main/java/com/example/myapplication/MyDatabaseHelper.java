@@ -5,7 +5,6 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
 import android.widget.Toast;
 import androidx.annotation.Nullable;
 
@@ -41,13 +40,12 @@ class MyDatabaseHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    void addBook(String title, String author, int pages){
+    void addBook(String title, String author){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
 
         cv.put(COLUMN_TITLE, title);
         cv.put(COLUMN_AUTHOR, author);
-        cv.put(COLUMN_PAGES, pages);
         long result = db.insert(TABLE_NAME,null, cv);
         if(result == -1){
             Toast.makeText(context, "Ошибка", Toast.LENGTH_SHORT).show();
@@ -67,12 +65,11 @@ class MyDatabaseHelper extends SQLiteOpenHelper {
         return cursor;
     }
 
-    void updateData(String row_id, String title, String author, String pages){
+    void updateData(String row_id, String title, String author){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
         cv.put(COLUMN_TITLE, title);
         cv.put(COLUMN_AUTHOR, author);
-        cv.put(COLUMN_PAGES, pages);
 
         long result = db.update(TABLE_NAME, cv, "_id=?", new String[]{row_id});
         if(result == -1){

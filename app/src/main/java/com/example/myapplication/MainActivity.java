@@ -64,8 +64,7 @@ public class MainActivity extends AppCompatActivity {
 
         storeDataInArrays();
 
-        customAdapter = new CustomAdapter(MainActivity.this,this, book_id, book_title, book_author,
-                book_pages);
+        customAdapter = new CustomAdapter(MainActivity.this,this, book_id, book_title, book_author);
         recyclerView.setAdapter(customAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this));
 
@@ -89,7 +88,6 @@ public class MainActivity extends AppCompatActivity {
                 book_id.add(cursor.getString(0));
                 book_title.add(cursor.getString(1));
                 book_author.add(cursor.getString(2));
-                book_pages.add(cursor.getString(3));
             }
             empty_imageview.setVisibility(View.GONE);
             no_data.setVisibility(View.GONE);

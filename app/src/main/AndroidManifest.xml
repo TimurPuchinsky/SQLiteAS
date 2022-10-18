@@ -22,7 +22,7 @@
         </activity>
         <activity
             android:name=".AddActivity"
-            android:label="Добавить дом"
+            android:label="Добавить одноклассника"
             android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.app.lib_name"
@@ -30,7 +30,7 @@
         </activity>
         <activity
             android:name=".MainActivity"
-            android:label="Библиотека"
+            android:label="Одноклассники"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
