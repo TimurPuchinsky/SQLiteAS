@@ -20,6 +20,9 @@ class MyDatabaseHelper extends SQLiteOpenHelper {
     private static final String COLUMN_AUTHOR = "book_author";
     private static final String COLUMN_PAGES = "book_pages";
 
+    private static final String COLUMN_NAME = "book_name";
+    private static final String COLUMN_FNAME = "book_fname";
+
     MyDatabaseHelper(@Nullable Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
         this.context = context;
@@ -34,6 +37,19 @@ class MyDatabaseHelper extends SQLiteOpenHelper {
                 COLUMN_PAGES + " INTEGER);";
         db.execSQL(query);
     }
+
+    @Override
+    public void onCreateNew(SQLiteDatabase dbn) {
+        String query = "CREATE TABLE " + TABLE_NAME +
+                " (" + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                COLUMN_TITLE + " TEXT, " +
+                COLUMN_AUTHOR + " TEXT, " +
+                COLUMN_PAGES + " INTEGER, " +
+                COLUMN_NAME + " TEXT, " +
+                COLUMN_FNAME + " TEXT);";
+        dbn.execSQL(query);
+    }
+
     @Override
     public void onUpgrade(SQLiteDatabase db, int i, int i1) {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
@@ -46,6 +62,22 @@ class MyDatabaseHelper extends SQLiteOpenHelper {
 
         cv.put(COLUMN_TITLE, title);
         cv.put(COLUMN_AUTHOR, author);
+        long result = db.insert(TABLE_NAME,null, cv);
+        if(result == -1){
+            Toast.makeText(context, "Ошибка", Toast.LENGTH_SHORT).show();
+        }else {
+            Toast.makeText(context, "Добавлено", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    void addBookNew(String title, String author , String name, String fname){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+
+        cv.put(COLUMN_TITLE, title);
+        cv.put(COLUMN_AUTHOR, author);
+        cv.put(COLUMN_NAME, name);
+        cv.put(COLUMN_FNAME, fname);
         long result = db.insert(TABLE_NAME,null, cv);
         if(result == -1){
             Toast.makeText(context, "Ошибка", Toast.LENGTH_SHORT).show();
