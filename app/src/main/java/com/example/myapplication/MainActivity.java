@@ -21,6 +21,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -31,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
     FloatingActionButton add_button;
+    Button buttonnew, buttonback;
     ImageView empty_imageview;
     TextView no_data;
 
@@ -55,6 +57,22 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        buttonnew.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, AddActivityNew.class);
+                startActivity(intent);
+            }
+        });
+
+        /*buttonback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(AddActivityNew, MainActivity);
+                startActivity(intent);
+            }
+        });*/
 
         myDB = new MyDatabaseHelper(MainActivity.this);
         book_id = new ArrayList<>();

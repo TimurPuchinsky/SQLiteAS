@@ -38,8 +38,8 @@ class MyDatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(query);
     }
 
-    @Override
-    public void onCreateNew(SQLiteDatabase dbn) {
+    /*@Override
+    public void onCreate(SQLiteDatabase dbn) {
         String query = "CREATE TABLE " + TABLE_NAME +
                 " (" + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 COLUMN_TITLE + " TEXT, " +
@@ -48,7 +48,7 @@ class MyDatabaseHelper extends SQLiteOpenHelper {
                 COLUMN_NAME + " TEXT, " +
                 COLUMN_FNAME + " TEXT);";
         dbn.execSQL(query);
-    }
+    }*/
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int i, int i1) {
