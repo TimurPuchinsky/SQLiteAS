@@ -2,6 +2,7 @@ package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -10,7 +11,7 @@ import android.widget.EditText;
 public class AddActivity extends AppCompatActivity {
 
     EditText title_input, author_input;
-    Button add_button;
+    Button add_button, buttonnew;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +27,14 @@ public class AddActivity extends AppCompatActivity {
                 MyDatabaseHelper myDB = new MyDatabaseHelper(AddActivity.this);
                 myDB.addBook(title_input.getText().toString().trim(),
                         author_input.getText().toString().trim());
+            }
+        });
+        buttonnew = findViewById(R.id.buttonnew);
+        buttonnew.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(AddActivity.this, AddActivityNew.class);
+                startActivity(intent);
             }
         });
     }

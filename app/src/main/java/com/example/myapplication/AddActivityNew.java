@@ -6,11 +6,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.content.Intent;
 
 public class AddActivityNew extends AppCompatActivity {
 
     EditText title_inputn, author_inputn, name_inputn, fname_inputn;
-    Button add_button;
+    Button add_button, buttonback;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +30,13 @@ public class AddActivityNew extends AppCompatActivity {
                 myDB.addBookNew(title_inputn.getText().toString().trim(),
                         author_inputn.getText().toString().trim(), name_inputn.getText().toString().trim(),
                         fname_inputn.getText().toString().trim());
+            }
+        });
+        buttonback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(AddActivityNew.this, MainActivity.class);
+                startActivity(intent);
             }
         });
     }
